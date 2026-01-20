@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello World</h1>
+  <h1>Thong tin sinh vien</h1>
+  <p>Name: {{ $name }}</p>
+  <p>MSSV: {{ $mssv }}</p>
 </body>
 </html>

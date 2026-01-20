@@ -6,6 +6,6 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello World</h1>
+  Khong tim thay trang! quay lai trang chu <a href="/">trang chu</a>
 </body>
 </html>
