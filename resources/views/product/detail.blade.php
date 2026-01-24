@@ -8,6 +8,5 @@
 <body>
   <h1>Product detail</h1>
   <h2>Id : {{ $id }}</h2>
-  <h2>Name: {{ $id }} </h2>
 </body>
 </html> 

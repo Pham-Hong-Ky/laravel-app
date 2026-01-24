@@ -6,7 +6,8 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="">
+  <form action="/product/store" method="POST">
+    @csrf
       <label>Product name</label>
       <input type="text" name="product_name">
       <br>

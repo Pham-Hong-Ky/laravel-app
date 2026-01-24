@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,16 +18,24 @@ Route::get('/test', function () {
 
 Route::prefix('/product')->group(function () {
 
-    Route::get('/', function () {
-        return view('product.index');
+    Route::controller(ProductController::class) -> group(function() {
+        Route::get('/', "index");
+        Route::get('/add', "create")->name('add');
+        Route::get('/detail/{id?}', "getDetail");
+        Route::post('/store', 'store');
     });
 
-    Route::get('/add', function () {
-        return view('product.add');
-    })->name('add');
+    // Route::get('/', [ProductController::class, "index"]);
+    // Route::get('/add', [ProductController::class, "create"])->name('add');
+    // Route::get('/detail/{id?}', [ProductController::class, "getDetail"] );
+});
 
-    Route::get('/{id?}', function (?string $id = "123") {
-        return view('product.detail', ['id' => $id]);
+Route::prefix('/auth')->group(function() {
+    Route::controller(AuthController::class)->group(function() {
+        Route::get('/loginView', "loginView");
+        Route::post('/login', "login");
+        Route::get('registerView', "registerView");
+        Route::post('register', "register");
     });
 });
 
