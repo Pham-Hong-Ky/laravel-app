@@ -41,4 +41,23 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+
+    public function ageVerifi(Request $rq)
+    {
+        $age = (int) $rq->input('age');
+        
+        if ($age < 18) {
+            return redirect()->route('auth.ageVerifiView')
+                ->with('error', 'Bạn phải đủ 18 tuổi để truy cập trang web này.');
+        }
+        
+        session()->put('age', $age);
+        session()->save();
+        return redirect('/');
+    }
+    
+    public function ageVerifiView()
+    {
+        return view('auth.ageVerifi');
+    }
 }
