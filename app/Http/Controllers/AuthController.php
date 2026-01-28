@@ -17,18 +17,23 @@ class AuthController extends Controller
         }
     }
 
-    public function register(Request $rq)
+    public function CheckSignIn(Request $rq)
     {
         $password = $rq->input('pass');
         $account = $rq->input('account');
         $passcf = $rq->input('passcf');
+        $class = $rq->input('class');
+        $mssv = $rq->input('mssv');
+        $gioitinh = $rq->input('gender');
 
         if (!isset($password) || !isset($account)) {
-            return "khong duoc null";
+            return "Đăng ký không thành công, vui lòng điền đầy đủ thông tin";
         } else if ($password != $passcf) {
-            return "hihi sai mat khau r";
+            return "Đăng ký không thành công, mật khẩu không khớp";
+        } else if ($account == "phamhongky" && $mssv == "0157667" && $class == "67PM2" && $gioitinh == "male") {
+            return "Đăng ký thành công tài khoản: " ;
         } else {
-            return "Dang ky thanh cong";
+            return "Đăng ký không thành công";
         }
     }
 
@@ -37,9 +42,9 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function registerView()
+    public function signInView()
     {
-        return view('auth.register');
+        return view('auth.signIn');
     }
 
     public function ageVerifi(Request $rq)

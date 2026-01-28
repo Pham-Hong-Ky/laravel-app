@@ -31,8 +31,8 @@ Route::middleware('age.check')->group(function () {
         Route::controller(AuthController::class)->group(function () {
             Route::get('/loginView', "loginView")->name('auth.loginView');
             Route::post('/login', "login");
-            Route::get('/registerView', "registerView");
-            Route::post('/register', "register");
+            Route::get('/signInView', "signInView");
+            Route::post('/signIn', "CheckSignIn");
         });
     });
 
