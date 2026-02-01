@@ -42,6 +42,9 @@ Route::middleware('age.check')->group(function () {
             Route::get('/add', "create")->name('add');
             Route::get('/detail/{id?}', "getDetail");
             Route::post('/store', 'store');
+            Route::delete('/delete/{id}', 'delete');
+            Route::get('/editView/{id}', 'editView');
+            Route::put('/edit/{id}', 'edit');
         });
     });
 
