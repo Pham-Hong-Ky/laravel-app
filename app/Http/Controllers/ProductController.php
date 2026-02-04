@@ -7,30 +7,30 @@ use App\Http\Middleware\CheckTimeAccess;
 use App\Models\Product;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class ProductController extends Controller implements HasMiddleware
+class ProductController extends Controller 
 {
 
-    public static function middleware() {
-        return [CheckTimeAccess::class];
-    }
+    // public static function middleware() {
+    //     return [CheckTimeAccess::class];
+    // }
 
     public function Index() {
         $title = "Product List";
         
         $products = Product::all();
         
-        return view('product.index', [
+        return view('admin.product.index', [
             'title' => $title,
             'products' => $products
         ]);
     }
 
     public function getDetail(?string $id = "123") {
-        return view('product.detail', ['id' => $id]);
+        return view('admin.product.detail', ['id' => $id, 'title' => 'Product Detail']);
     }
 
     public function create() {
-        return view('product.add');
+        return view('admin.product.add', ['title' => 'Add New Product']);
     }
 
     public function store(Request $request) {
@@ -47,7 +47,7 @@ class ProductController extends Controller implements HasMiddleware
 
     public function editView(string $id) {
         $product = Product::find($id);
-        return view('product.edit', ['product' => $product]);
+        return view('admin.product.edit', ['product' => $product, 'title' => 'Edit Product']);
     }
 
     public function edit(Request $request, string $id) {

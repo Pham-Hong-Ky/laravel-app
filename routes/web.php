@@ -33,6 +33,7 @@ Route::middleware('age.check')->group(function () {
             Route::post('/login', "login");
             Route::get('/signInView', "signInView");
             Route::post('/signIn', "CheckSignIn");
+            Route::post('/logout', "logout")->name('auth.logout');
         });
     });
 
@@ -57,6 +58,10 @@ Route::middleware('age.check')->group(function () {
     Route::get('/banco/{n}', function (int $n) {
         return view('banco.index', ['n' => $n]);
     });
+});
+
+Route::get('/admin', function () {
+    return view('layout.admin');
 });
 
 Route::fallback(function () {
