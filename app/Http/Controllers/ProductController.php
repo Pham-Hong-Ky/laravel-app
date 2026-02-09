@@ -14,7 +14,7 @@ class ProductController extends Controller
     //     return [CheckTimeAccess::class];
     // }
 
-    public function Index() {
+    public function index() {
         $title = "Product List";
         
         $products = Product::all();

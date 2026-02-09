@@ -63,6 +63,57 @@
               </li>
             </ul>
           </li>
+          
+          <!-- Product Management -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-box"></i>
+              <p>
+                Product Management
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/product" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Products</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/product/add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New Product</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <!-- Category Management -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Category Management
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('category.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Categories</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('category.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New Category</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

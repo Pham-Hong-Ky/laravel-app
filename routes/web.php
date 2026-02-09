@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
 use App\Http\Middleware\CheckTimeAccess;
@@ -49,7 +50,7 @@ Route::middleware('age.check')->group(function () {
         });
     });
 
-    Route::resource('/test', TestController::class);
+    Route::resource('/category', CategoryController::class);
 
     Route::get('/sinhvien/{name?}/{mssv?}', function (?string $name = "Luong Xuan Hieu", ?string $mssv = "123456") {
         return view('sinhvien.detail', ['name' => $name, 'mssv' => $mssv]);
