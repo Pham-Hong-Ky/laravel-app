@@ -5,7 +5,7 @@
             <h3 class="card-title">Add New Category</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('category.store') }}" method="POST">
+            <form action="{{ route('admin.category.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Category Name *</label>
@@ -55,7 +55,7 @@
                 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Category</button>
-                    <a href="{{ route('category.index') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

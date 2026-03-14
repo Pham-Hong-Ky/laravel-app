@@ -75,13 +75,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/product" class="nav-link">
+                <a href="/admin/product" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/product/add" class="nav-link">
+                <a href="/admin/product/add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Product</p>
                 </a>
@@ -100,13 +100,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('category.index') }}" class="nav-link">
+                <a href="{{ route('admin.category.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('category.create') }}" class="nav-link">
+                <a href="{{ route('admin.category.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Category</p>
                 </a>

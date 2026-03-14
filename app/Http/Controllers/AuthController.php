@@ -15,7 +15,7 @@ class AuthController extends Controller
             'email' => $rq->input('email'),
             'password' => $rq->input('pass')
         ])) {
-            return redirect('/product');
+            return redirect('/');
         } else {
             return back()->with('error', 'Đăng nhập không thành công, vui lòng kiểm tra lại tài khoản và mật khẩu');
         }
@@ -51,7 +51,7 @@ class AuthController extends Controller
             // Tự động đăng nhập sau khi đăng ký
             Auth::login($user);
 
-            return redirect('/product')->with('success', 'Đăng ký thành công!');
+            return redirect('/')->with('success', 'Đăng ký thành công!');
         } catch (\Exception $e) {
             return back()->with('error', 'Đăng ký không thành công. Vui lòng thử lại.');
         }

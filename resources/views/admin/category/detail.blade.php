@@ -57,9 +57,9 @@
             </div>
             
             <div class="mt-3">
-                <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
-                <a href="{{ route('category.index') }}" class="btn btn-secondary">Back to List</a>
-                <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Back to List</a>
+                <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" 

@@ -3,7 +3,7 @@
 
     <body>
         <button class="btn btn-primary" style="margin-bottom: 15px">
-            <a href="{{ route('category.create') }}" style="color: white; text-decoration: none;">Add New Category</a>
+            <a href="{{ route('admin.category.create') }}" style="color: white; text-decoration: none;">Add New Category</a>
         </button>
         <br>
         
@@ -41,8 +41,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" 

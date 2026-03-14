@@ -3,8 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\TestController;
-use App\Http\Middleware\CheckTimeAccess;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +15,7 @@ Route::prefix('/auth')->group(function () {
 
 Route::middleware('age.check')->group(function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('customer.dashboard.index');
     });
 
     Route::get('/hello', function () {
@@ -27,6 +25,16 @@ Route::middleware('age.check')->group(function () {
     Route::get('/test', function () {
         return response()->json("Hello world");
     });
+
+    // Customer Routes
+    Route::get('/products', function () {
+        return view('customer.product.index');
+    })->name('products');
+    
+    Route::get('/details', function () {
+        $id = request('id');
+        return view('customer.product.detail');
+    })->name('products.detail');
 
     Route::prefix('/auth')->group(function () {
         Route::controller(AuthController::class)->group(function () {
@@ -38,19 +46,21 @@ Route::middleware('age.check')->group(function () {
         });
     });
 
-    Route::prefix('/product')->group(function () {
-        Route::controller(ProductController::class)->group(function () {
-            Route::get('/', "index");
-            Route::get('/add', "create")->name('add');
-            Route::get('/detail/{id?}', "getDetail");
-            Route::post('/store', 'store');
-            Route::delete('/delete/{id}', 'delete');
-            Route::get('/editView/{id}', 'editView');
-            Route::put('/edit/{id}', 'edit');
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::prefix('/product')->group(function () {
+            Route::controller(ProductController::class)->group(function () {
+                Route::get('/', "index");
+                Route::get('/add', "create")->name('add');
+                Route::get('/detail/{id?}', "getDetail");
+                Route::post('/store', 'store');
+                Route::delete('/delete/{id}', 'delete');
+                Route::get('/editView/{id}', 'editView');
+                Route::put('/edit/{id}', 'edit');
+            });
         });
-    });
 
-    Route::resource('/category', CategoryController::class);
+        Route::resource('/category', CategoryController::class);
+    });
 
     Route::get('/sinhvien/{name?}/{mssv?}', function (?string $name = "Luong Xuan Hieu", ?string $mssv = "123456") {
         return view('sinhvien.detail', ['name' => $name, 'mssv' => $mssv]);

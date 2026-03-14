@@ -5,7 +5,7 @@
             <h3 class="card-title">Edit Category</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('category.update', $category->id) }}" method="POST">
+            <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 
@@ -61,7 +61,7 @@
                 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Update Category</button>
-                    <a href="{{ route('category.index') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

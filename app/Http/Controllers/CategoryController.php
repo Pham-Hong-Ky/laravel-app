@@ -61,7 +61,7 @@ class CategoryController extends Controller
             'is_delete' => 0,
         ]);
         
-        return redirect('/category');
+        return redirect('admin/category');
     }
 
     /**
@@ -114,7 +114,7 @@ class CategoryController extends Controller
         
         $category->save();
 
-        return redirect('/category');
+        return redirect('admin/category');
     }
 
     /**
@@ -126,6 +126,6 @@ class CategoryController extends Controller
         $category->is_delete = 1;
         $category->save();
         
-        return redirect('/category');
+        return redirect('admin/category');
     }
 }
